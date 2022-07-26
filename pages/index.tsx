@@ -1,3 +1,4 @@
+import {} from './Header';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -11,7 +12,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className=''>
-        <h1>hello</h1>
+        {/* banner */}
+        <section>
+          {/* row */}
+          {/* row */}
+          {/* row */}
+          {/* row */}
+        </section>
       </main>
     </div>
   );

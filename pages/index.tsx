@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
-    <div className=''>
+    <div className='bg-gradient-to-b from-black to-gray-800 h-[100vh] sm:h-[140vh]'>
       <Head>
         <title>Netflix home page</title>
         <link rel='icon' href='/favicon.ico' />

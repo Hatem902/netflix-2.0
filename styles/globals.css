@@ -3,6 +3,6 @@
 @tailwind utilities;
 @layer base {
   body {
-    @apply text-white bg-gradient-to-b from-black to-gray-800 h-[140vh] sm:h-screen;
+    @apply bg-[#141414] text-white;
   }
 }

@@ -38,11 +38,15 @@ const Header = () => {
               <li
                 className='
               headerLink cursor-default font-semibold text-white hover:text-white'
+                key={headerItem}
               >
                 {headerItem}
               </li>
             ) : (
-              <li className='cursor-pointer text-sm font-light  transition duration-[.4s] hover:text-[#b3b3b3]'>
+              <li
+                className='cursor-pointer text-sm font-light  transition duration-[.4s] hover:text-[#b3b3b3]'
+                key={headerItem}
+              >
                 {headerItem}
               </li>
             )

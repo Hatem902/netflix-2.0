@@ -1,9 +1,9 @@
 import Header from '../components/Header';
-import type { NextPage } from 'next';
+import Banner from '../components/Banner';
 import Head from 'next/head';
-import Image from 'next/image';
 import requests from '../utils/requests';
 import { Movie } from '../typings';
+import { useEffect, useState } from 'react';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -26,16 +26,24 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
-  console.log(netflixOriginals);
+  const [randomMovie, setRandomMovie] = useState<Movie>(netflixOriginals[0]);
+
+  useEffect(() => {
+    setRandomMovie(
+      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
+    );
+  }, [netflixOriginals]);
+
   return (
-    <div className='bg-gradient-to-b from-black to-gray-800 h-[100vh] sm:h-[140vh]'>
+    <div className='relative bg-gradient-to-b from-black to-gray-800 h-[100vh] sm:h-[140vh]'>
       <Head>
         <title>Netflix home page</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
       <main className=''>
-        {/* banner */}
+        <Banner movie={randomMovie} />
+
         <section>
           {/* row */}
           {/* row */}
@@ -72,14 +80,14 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      netflixOriginals: netflixOriginals,
-      trendingNow: trendingNow,
-      topRated: topRated,
-      actionMovies: actionMovies,
-      comedyMovies: comedyMovies,
-      horrorMovies: horrorMovies,
-      romanceMovies: romanceMovies,
-      documentaries: documentaries,
+      netflixOriginals: netflixOriginals.results,
+      trendingNow: trendingNow.results,
+      topRated: topRated.results,
+      actionMovies: actionMovies.results,
+      comedyMovies: comedyMovies.results,
+      horrorMovies: horrorMovies.results,
+      romanceMovies: romanceMovies.results,
+      documentaries: documentaries.results,
     },
   };
 };

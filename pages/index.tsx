@@ -35,13 +35,14 @@ const Home = ({
   }, [netflixOriginals]);
 
   return (
-    <div className='relative bg-gradient-to-b from-black to-gray-800 h-[100vh] sm:h-[140vh]'>
+    <div className='relative bg-gradient-to-b from-black to-gray-800 -z-20 h-[100vh] sm:h-[140vh]'>
       <Head>
         <title>Netflix home page</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main className=''>
+
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 '>
         <Banner movie={randomMovie} />
 
         <section>

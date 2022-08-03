@@ -4,6 +4,8 @@ import Head from 'next/head';
 import requests from '../utils/requests';
 import { Movie } from '../typings';
 import { useEffect, useState } from 'react';
+import Row from '../components/Row';
+import { RowsTitles } from '../components-data/rows-titles';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -26,6 +28,17 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+  const propsTable = [
+    netflixOriginals,
+    trendingNow,
+    topRated,
+    actionMovies,
+    comedyMovies,
+    horrorMovies,
+    romanceMovies,
+    documentaries,
+  ];
+
   const [randomMovie, setRandomMovie] = useState<Movie>(netflixOriginals[0]);
 
   useEffect(() => {
@@ -33,6 +46,8 @@ const Home = ({
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     );
   }, [netflixOriginals]);
+
+  const rowsTitles = RowsTitles;
 
   return (
     <div className='relative bg-gradient-to-b from-black to-gray-800 -z-20 h-[100vh] sm:h-[140vh]'>
@@ -46,10 +61,9 @@ const Home = ({
         <Banner movie={randomMovie} />
 
         <section>
-          {/* row */}
-          {/* row */}
-          {/* row */}
-          {/* row */}
+          {propsTable.map((category, index) => (
+            <Row category={category} title={rowsTitles[index]} />
+          ))}
         </section>
       </main>
     </div>

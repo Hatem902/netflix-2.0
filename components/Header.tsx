@@ -22,11 +22,12 @@ const Header = () => {
     <header
       className={`${
         scrolled && 'bg-[#141414]'
-      } fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6 `}
+      } fixed top-0 z-50 flex w-full  items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6 `}
     >
       <div className='flex items-center space-x-2 md:space-x-10'>
+        {/* Netflix Logo : */}
         <img
-          src='https://rb.gy/ulxxee'
+          src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'
           width={100}
           height={100}
           className='cursor-pointer object-contain'

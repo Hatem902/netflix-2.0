@@ -55,7 +55,7 @@ function Login() {
         <div className='space-y-4'>
           <label className='inline-block w-full'>
             <input
-              type='email'
+              type='text'
               placeholder='Email'
               className={`loginInput ${
                 errors.email && 'border-b-2 border-orange-500'

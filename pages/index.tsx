@@ -45,7 +45,7 @@ const Home = ({
     setRandomMovie(
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     );
-  }, [netflixOriginals]);
+  }, []);
 
   const rowsTitles = RowsTitles;
 

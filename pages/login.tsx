@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-/* import useAuth from '../hooks/useAuth'; */
+import useAuth from '../hooks/use-auth';
 
 interface Inputs {
   email: string;
@@ -11,7 +11,7 @@ interface Inputs {
 
 function Login() {
   const [login, setLogin] = useState(false);
-  /* const { signIn, signUp } = useAuth(); */
+  const { signIn, signUp } = useAuth();
 
   const {
     register,
@@ -21,11 +21,11 @@ function Login() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
-    /* if (login) {
+    if (login) {
       await signIn(data.email, data.password);
     } else {
       await signUp(data.email, data.password);
-    } */
+    }
   };
 
   return (
@@ -73,7 +73,7 @@ function Login() {
               type='password'
               {...register('password', {
                 required: true,
-                minLength: 4,
+                minLength: 6,
                 maxLength: 60,
               })}
               placeholder='Password'
@@ -83,7 +83,7 @@ function Login() {
             />
             {errors.password && (
               <p className='p-1 text-[13px] font-light  text-orange-500'>
-                Your password must contain between 4 and 60 characters.
+                Your password must contain between 6 and 60 characters.
               </p>
             )}
           </label>

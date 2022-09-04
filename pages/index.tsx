@@ -6,6 +6,7 @@ import { Movie } from '../typings';
 import { useEffect, useState } from 'react';
 import Row from '../components/Row';
 import { RowsTitles } from '../components-data/rows-titles';
+import useAuth from '../hooks/use-auth';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -48,6 +49,9 @@ const Home = ({
   }, []);
 
   const rowsTitles = RowsTitles;
+
+  const { loading } = useAuth();
+  if (loading) return null;
 
   return (
     <div className='relative bg-gradient-to-b h-[100vh] sm:h-[140vh]'>
